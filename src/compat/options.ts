@@ -29,7 +29,16 @@ const SAME: Record<string, keyof InitOptions> = {
 };
 
 /** OpenPush option names a migrating site may also pass; they keep their meaning. */
-const OWN: readonly (keyof InitOptions)[] = ["serverUrl", "logLevel", "language", "promptsLanguage", "nonce", "defaultUrl", "defaultTitle"];
+const OWN: readonly (keyof InitOptions)[] = [
+  "serverUrl",
+  "logLevel",
+  "language",
+  "promptsLanguage",
+  "nonce",
+  "defaultUrl",
+  "defaultTitle",
+  "requestHeaders",
+];
 
 /** Mapped by the code below. */
 const HANDLED = new Set([

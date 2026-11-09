@@ -99,8 +99,9 @@ describe("init options", () => {
   });
 
   it("OpenPush's own option names keep their meaning", () => {
-    const m = map({ serverUrl: "https://push.example.com", logLevel: "debug", nonce: "n1" });
-    expect(m.options).toMatchObject({ serverUrl: "https://push.example.com", logLevel: "debug", nonce: "n1" });
+    const requestHeaders = (): Record<string, string> => ({ "X-Site": "a" });
+    const m = map({ serverUrl: "https://push.example.com", logLevel: "debug", nonce: "n1", requestHeaders });
+    expect(m.options).toMatchObject({ serverUrl: "https://push.example.com", logLevel: "debug", nonce: "n1", requestHeaders });
     expect(m.ignored).toEqual([]);
   });
 });

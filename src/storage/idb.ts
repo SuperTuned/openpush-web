@@ -14,8 +14,8 @@ export const STORE = {
   clicks: "clicks",
 } as const;
 
-/** Row keys in the out-of-line stores. */
-export const ROW = { cfg: "cfg", state: "state", lastClick: "last" } as const;
+/** Row keys in the out-of-line stores. `headers` is the `requestHeaders` copy for the worker. */
+export const ROW = { cfg: "cfg", state: "state", lastClick: "last", headers: "headers" } as const;
 
 type StoreName = (typeof STORE)[keyof typeof STORE];
 

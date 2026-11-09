@@ -1,6 +1,6 @@
 {
   "name": "@openpush/web",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "OpenPush Web SDK: web push for your site, with one script tag or one npm package.",
   "private": true,
   "license": "Apache-2.0",

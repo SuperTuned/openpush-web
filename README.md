@@ -93,6 +93,32 @@ from its own `worker/` folder (scope: that folder), and can send a push when a p
 published. The plugin is licensed under GPL-2.0-or-later, like WordPress; see its
 [LICENSE](integrations/wordpress/openpush/LICENSE).
 
+## Request headers
+
+`requestHeaders` adds your own headers to the SDK's requests to the OpenPush server: registration,
+opt-in and opt-out, user, session and event calls, and delivery receipts. Give an object, or a
+function (it may be async) that the SDK calls before each request:
+
+```js
+await OpenPush.initialize({
+  appId: "your-app-id",
+  requestHeaders: async () => ({ "X-Example-Header": await getHeaderValue() }),
+});
+```
+
+- Header names and values must be text. The SDK leaves out headers it or the browser sets itself
+  (for example Content-Type, Authorization, Cookie, Host, Origin and X-OP-SDK-Key), with a console
+  warning. Warnings name the header, never its value; the SDK never logs header values.
+- If the function fails, or does not answer within 5 seconds, the request goes without the extra
+  headers.
+- The service worker sends delivery receipts when no page is open, so the SDK keeps a copy of the
+  headers in this site's IndexedDB (database `openpush-web-sdk`). The copy is replaced when the
+  headers change, and removed when you remove the option or call `logout()` (the next request
+  then stores what the option gives at that time).
+- The public config request does not get the headers.
+- When the page and the OpenPush server are on different origins, the browser asks the server first
+  (a CORS preflight), and the server must allow each header name.
+
 ## Develop
 
 Node.js 20 or newer.

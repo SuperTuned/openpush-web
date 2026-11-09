@@ -12,7 +12,7 @@ describe("script-tag build", () => {
     expect(typeof w.OpenPush?.initialize).toBe("function");
     // `init` is v1's name and resolves with v1's shape, so it is its own function.
     expect(typeof w.OpenPush?.init).toBe("function");
-    expect(w.OpenPush?.version).toMatch(/^1\.1\./);
+    expect(w.OpenPush?.version).toMatch(/^1\.2\./);
     expect(seen).toEqual([w.OpenPush]);
     expect(Array.isArray(w.OpenPushDeferred)).toBe(false);
   });

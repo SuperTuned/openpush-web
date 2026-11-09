@@ -58,7 +58,7 @@ describe("registration body", () => {
       language: "en",
       timezone: "Europe/London",
       country: "GB",
-      sdk_version: expect.stringMatching(/^web\/1\.1\./),
+      sdk_version: expect.stringMatching(/^web\/1\.2\./),
       sdk_wrapper: "react/2.0.0",
       status: 1,
       external_id: "user-1",

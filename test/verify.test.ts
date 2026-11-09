@@ -8,7 +8,7 @@ describe("Verify.start / check / resend", () => {
     const s = await start();
     s.reset();
     const v = await s.api.Verify.start("+1 (415) 555-0123", "sms", "fr");
-    expect(s.requests()).toEqual([{ path: "/v1/apps/app-1/verify", body: { to: "+14155550123", channel: "sms", locale: "fr" } }]);
+    expect(s.requests().map(({ path, body }) => ({ path, body }))).toEqual([{ path: "/v1/apps/app-1/verify", body: { to: "+14155550123", channel: "sms", locale: "fr" } }]);
     expect(v).toEqual({ id: "ver-1", maskedNumber: "+1••••••0123", channel: "sms", status: "pending", attempts: 0, expiresAt: 1_900_000_000 });
     expect(JSON.stringify(v)).not.toContain("4155550123");
   });
@@ -19,7 +19,7 @@ describe("Verify.start / check / resend", () => {
     s.reset();
     const checked = await s.api.Verify.check(v, " 482913 ");
     await s.api.Verify.resend(v, "call");
-    expect(s.requests()).toEqual([
+    expect(s.requests().map(({ path, body }) => ({ path, body }))).toEqual([
       { path: "/v1/apps/app-1/verify/ver-1/check", body: { to: "+14155550123", code: "482913" } },
       { path: "/v1/apps/app-1/verify/ver-1/resend", body: { to: "+14155550123", channel: "call" } },
     ]);

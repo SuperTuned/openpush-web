@@ -6,6 +6,21 @@ in `integrations/wordpress/openpush/readme.txt`.
 
 The project uses [Semantic Versioning](https://semver.org/).
 
+## 1.2.0
+
+- New `requestHeaders` option for `initialize`: an object, or a function (sync or async) that the
+  SDK calls before each request, whose headers are added to the SDK's requests to the OpenPush
+  server (registration, opt-in and opt-out, user, session, event and verify calls, and delivery
+  receipts). The public config request does not get them.
+- Headers the SDK or the browser sets itself are refused with a console warning that names the
+  header, never its value. Header values are never logged. A function that fails or takes longer
+  than 5 seconds leaves the request without the extra headers.
+- The service worker uses a copy of the headers kept in the site's IndexedDB, so receipts sent when
+  no page is open carry them too. The copy follows the option at each `initialize` and is removed
+  by `logout()`.
+- `RequestHeadersOption` is exported from `@openpush/web`, and the compatibility layer passes the
+  option through.
+
 ## 1.1.0
 
 First public release. The first version is 1.1.0 so that it never shares a version number with the

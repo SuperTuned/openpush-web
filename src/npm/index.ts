@@ -12,7 +12,7 @@ export default api;
 
 /**
  * For OpenPush's framework wrappers: the `sdk_wrapper` value registrations carry, for example
- * "react/1.1.0". Not needed in your own code.
+ * "react/1.2.0". Not needed in your own code.
  */
 export function setSdkWrapper(value: string): void {
   runtime.sdkWrapper = value;
@@ -46,6 +46,7 @@ export type {
 } from "../notification";
 export type { PromptsApi, PromptEvent, PromptEventName, PromptListener, PromptType, ShowOptions } from "../prompts/types";
 export type { InitOptions, PromptOption, WelcomeOptions, WebhookOptions } from "../core/options";
+export type { RequestHeadersOption } from "../net/request_headers";
 export type { ClickBehavior } from "../storage/types";
 export type { LogLevel } from "../log/levels";
 export type { LogEntry, LogListener } from "../log/logger";

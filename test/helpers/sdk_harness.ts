@@ -2,7 +2,9 @@
  * Starts the whole page SDK against a fake browser and a small fake OpenPush server, for the
  * user, channel, event and v1 tests. By default the browser is subscribed with a direct row.
  */
+import type { IDBFactory } from "fake-indexeddb";
 import { expect, vi } from "vitest";
+import type { InitOptions } from "../../src/core/options";
 import { createOpenPush, type OpenPushApi, type Runtime } from "../../src/core/sdk";
 import type { PermissionValue } from "../../src/platform/types";
 import { Db } from "../../src/storage/idb";
@@ -15,6 +17,7 @@ export type Body = Record<string, unknown>;
 export interface Request {
   path: string;
   body: Body;
+  headers: Record<string, string>;
 }
 
 export interface StartOptions {
@@ -34,6 +37,10 @@ export interface StartOptions {
   /** localStorage shared with another "tab". */
   storage?: FakeStorage;
   dataLayer?: unknown[];
+  /** More `initialize` options beside `appId: "app-1"`. */
+  options?: Omit<InitOptions, "appId">;
+  /** IndexedDB shared with an earlier page load. */
+  idb?: IDBFactory;
 }
 
 export interface Started {
@@ -45,6 +52,8 @@ export interface Started {
   delays: number[];
   /** Every request to the server so far, config fetches left out. */
   requests(): Request[];
+  /** Headers of each config fetch. */
+  configHeaders(): Record<string, string>[];
   /** Bodies sent to a path ending with `suffix`, for example "/subscriptions". */
   sent(suffix: string): Body[];
   /** Push registrations (platform "web"). */
@@ -78,16 +87,19 @@ export function defaultAnswer(req: Request): Response {
 export async function start(o: StartOptions = {}): Promise<Started> {
   const subscribed = o.subscribed ?? true;
   const requests: Request[] = [];
+  const configHeaders: Record<string, string>[] = [];
   const fake = fakePlatform({
     permission: o.permission ?? (subscribed ? "granted" : "default"),
     dataLayer: o.dataLayer,
     fetch: async (url: string, init?: RequestInit) => {
+      const headers = { ...(init?.headers as Record<string, string> | undefined) };
       if (url.includes("/webpush-config")) {
+        configHeaders.push(headers);
         return jsonResponse(bootstrapBody({ web_push: { public_key: ACTIVE_KEY, key_id: "k2" } }), 200, { ETag: '"e1"' });
       }
       const path = new URL(url).pathname;
       const body = init?.body ? (JSON.parse(String(init.body)) as Body) : {};
-      const req = { path, body };
+      const req = { path, body, headers };
       requests.push(req);
       return (await o.respond?.(req)) ?? defaultAnswer(req);
     },
@@ -106,7 +118,9 @@ export async function start(o: StartOptions = {}): Promise<Started> {
       clearTimeout: (handle) => clearTimeout(handle as ReturnType<typeof setTimeout>),
     };
   }
-  const db = new Db(fake.idb, () => true);
+  const idb = o.idb ?? fake.idb;
+  fake.platform.indexedDB = () => idb;
+  const db = new Db(idb, () => true);
   const manager = new FakePushManager();
   fake.container.pushManager = manager;
   if (subscribed) {
@@ -130,7 +144,7 @@ export async function start(o: StartOptions = {}): Promise<Started> {
     }
   };
   if (o.init ?? true) {
-    await api.initialize({ appId: "app-1" });
+    await api.initialize({ appId: "app-1", ...o.options });
     await settle();
   }
   const sent = (suffix: string): Body[] => requests.filter((r) => r.path.endsWith(suffix)).map((r) => r.body);
@@ -142,6 +156,7 @@ export async function start(o: StartOptions = {}): Promise<Started> {
     db,
     delays,
     requests: () => [...requests],
+    configHeaders: () => [...configHeaders],
     sent,
     registrations: () => sent("/subscriptions").filter((b) => b.platform === "web"),
     reset: () => {

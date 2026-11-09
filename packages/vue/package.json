@@ -1,6 +1,6 @@
 {
   "name": "@openpush/vue",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "OpenPush web push for Vue 3: a plugin and a composable over @openpush/web.",
   "private": true,
   "license": "Apache-2.0",
@@ -38,7 +38,7 @@
   ],
   "sideEffects": false,
   "peerDependencies": {
-    "@openpush/web": "1.1.0",
+    "@openpush/web": "1.2.0",
     "vue": "^3.3.0"
   },
   "devDependencies": {

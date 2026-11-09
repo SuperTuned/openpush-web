@@ -50,7 +50,7 @@ export interface DeviceFields {
   /** BCP-47 tag, for example "en-GB". */
   language: string;
   timezone?: string;
-  /** `sdk_wrapper`, set by a framework wrapper ("react/1.1.0"). */
+  /** `sdk_wrapper`, set by a framework wrapper ("react/1.2.0"). */
   sdkWrapper?: string;
 }
 

@@ -17,7 +17,7 @@ describe("v1 bridge", () => {
       expect(typeof w.OpenPush[name]).toBe("function");
     }
     for (const name of ["initialize", "User", "PushSubscription", "Notifications", "Prompts"]) expect(w.OpenPush[name]).toBeDefined();
-    expect(w.OpenPush.version).toMatch(/^1\.1\./);
+    expect(w.OpenPush.version).toMatch(/^1\.2\./);
     expect(bridgePromptsUrl("https://app.openpush.ai/sdk/web/v1/openpush.js")).toBe("https://app.openpush.ai/sdk/web/v2/openpush-prompts.js");
     expect(bridgePromptsUrl("https://push.example.com/sdk/web/2.0.0/openpush.js")).toBe("https://push.example.com/sdk/web/2.0.0/openpush-prompts.js");
   });

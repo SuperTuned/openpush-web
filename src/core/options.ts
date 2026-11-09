@@ -1,4 +1,5 @@
 import type { LogLevel } from "../log/levels";
+import type { RequestHeadersOption } from "../net/request_headers";
 import type { ClickBehavior, Webhooks } from "../storage/types";
 import type { Bootstrap } from "./bootstrap";
 import { httpsUrl } from "../util/values";
@@ -40,6 +41,14 @@ export interface InitOptions {
   language?: string;
   nonce?: string;
   promptsLanguage?: string;
+  /**
+   * Extra headers for the SDK's requests to the OpenPush server: an object of header names and
+   * text values, or a function (sync or async) that returns one, called before each request.
+   * Headers the SDK or the browser sets (Content-Type, Authorization, Cookie, Host, Origin,
+   * X-OP-SDK-Key and others) are left out with a console warning. The service worker sends
+   * delivery receipts with the same headers, from a copy kept in this site's IndexedDB.
+   */
+  requestHeaders?: RequestHeadersOption;
 }
 
 export type SetupType = "typical" | "custom";

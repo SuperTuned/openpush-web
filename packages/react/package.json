@@ -1,6 +1,6 @@
 {
   "name": "@openpush/react",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "OpenPush web push for React and Next.js: a provider and a hook over @openpush/web.",
   "private": true,
   "license": "Apache-2.0",
@@ -39,7 +39,7 @@
   ],
   "sideEffects": false,
   "peerDependencies": {
-    "@openpush/web": "1.1.0",
+    "@openpush/web": "1.2.0",
     "react": ">=18.0.0"
   },
   "devDependencies": {

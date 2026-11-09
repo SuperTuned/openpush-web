@@ -11,7 +11,10 @@ export interface HttpRequest {
   path: string;
   body?: unknown;
   headers?: Record<string, string>;
-  /** Send `X-OP-SDK-Key` (default true). The public config route does not need it. */
+  /**
+   * Send `X-OP-SDK-Key` and the site's `requestHeaders` (default true). The public config route
+   * needs neither.
+   */
   auth?: boolean;
 }
 
@@ -29,6 +32,8 @@ export interface HttpDeps {
   log: Logger;
   /** False while consent is required and not given: no request leaves the page. */
   allowed: () => boolean;
+  /** The site's `requestHeaders`, already checked; never rejects. */
+  extraHeaders?: () => Promise<Record<string, string>>;
 }
 
 export const SDK_KEY_HEADER = "X-OP-SDK-Key";
@@ -39,10 +44,12 @@ export class HttpClient {
 
   async send(req: HttpRequest): Promise<HttpResponse> {
     if (!this.deps.allowed()) throw new OpenPushError("consent_required", "Requests are off until consent is given");
-    const headers: Record<string, string> = { ...req.headers };
+    let headers: Record<string, string> = { ...req.headers };
     if (req.auth !== false) {
       const key = this.deps.sdkKey();
       if (!key) throw new OpenPushError("not_initialized", "The SDK key is not known yet");
+      // The SDK's own headers always win over the site's.
+      if (this.deps.extraHeaders) headers = { ...(await this.deps.extraHeaders()), ...headers };
       headers[SDK_KEY_HEADER] = key;
     }
     let payload: string | undefined;

@@ -5,6 +5,7 @@
 import { OpenPushError } from "../errors";
 import type { Logger } from "../log/logger";
 import { HttpClient, type FetchLike, type HttpResponse } from "../net/http";
+import { storedHeaders } from "../net/request_headers";
 import type { QueuedWrite } from "../net/queue";
 import { isRetryableStatus } from "../net/retry";
 import type { SdkDb } from "../storage/memory";
@@ -58,7 +59,15 @@ async function newSubscription(event: PushSubscriptionChangeEventLike, cfg: CfgR
 async function post(path: string, body: Record<string, unknown>, cfg: CfgRow, deps: SubscriptionChangeDeps): Promise<HttpResponse | "queued"> {
   const server = cfg.server as string;
   const key = cfg.sdkKey as string;
-  const http = new HttpClient({ fetch: deps.fetch, serverUrl: () => server, sdkKey: () => key, log: deps.log, allowed: () => true });
+  const extra = await storedHeaders(deps.db, deps.log);
+  const http = new HttpClient({
+    fetch: deps.fetch,
+    serverUrl: () => server,
+    sdkKey: () => key,
+    log: deps.log,
+    allowed: () => true,
+    extraHeaders: async () => extra,
+  });
   let res: HttpResponse | undefined;
   try {
     res = await http.send({ method: "POST", path, body });

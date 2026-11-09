@@ -13,7 +13,7 @@ export interface InternalApi {
   readonly log: Logger;
   /** The `initialize` promise, once `initialize` was called. */
   initialized(): Promise<void> | undefined;
-  /** `sdk_wrapper` sent with registrations, for example "react/1.1.0". */
+  /** `sdk_wrapper` sent with registrations, for example "react/1.2.0". */
   setSdkWrapper(value: string): void;
   /** Calls `listener` just before the SDK asks the browser for permission; returns a remover. */
   onPermissionPrompt(listener: () => void): () => void;

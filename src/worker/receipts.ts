@@ -1,5 +1,6 @@
 /**
- * Receipts: `POST {server}/v1/ingest` with `X-OP-SDK-Key`. A receipt that cannot be
+ * Receipts: `POST {server}/v1/ingest` with `X-OP-SDK-Key` and the site's
+ * `requestHeaders`, read from the copy the page stored before each send. A receipt that cannot be
  * sent waits in the shared `queue` store (one row per receipt, kind `receipt`) and goes out with
  * the next receipt, or with the page's write queue on the next page load. At most 100 wait; the
  * oldest are dropped. Order is kept: queued receipts go first, in the order they were made.
@@ -7,6 +8,7 @@
 import { OpenPushError } from "../errors";
 import type { Logger } from "../log/logger";
 import { HttpClient, type FetchLike } from "../net/http";
+import { storedHeaders } from "../net/request_headers";
 import type { QueuedWrite } from "../net/queue";
 import { isRetryableStatus } from "../net/retry";
 import type { SdkDb } from "../storage/memory";
@@ -79,7 +81,15 @@ export class Receipts {
       await this.store(event);
       return;
     }
-    const http = new HttpClient({ fetch: this.deps.fetch, serverUrl: () => server, sdkKey: () => key, log, allowed: () => true });
+    const extra = await storedHeaders(db, log);
+    const http = new HttpClient({
+      fetch: this.deps.fetch,
+      serverUrl: () => server,
+      sdkKey: () => key,
+      log,
+      allowed: () => true,
+      extraHeaders: async () => extra,
+    });
     const events = [...waiting.flatMap(eventsOf), event];
     let status: number;
     try {

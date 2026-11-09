@@ -106,7 +106,7 @@ describe("openpush-compat.js loads openpush.js", () => {
   it("from beside itself, else the hosted path of this version", () => {
     expect(coreUrl("https://app.openpush.ai/sdk/web/v2/openpush-compat.js")).toBe("https://app.openpush.ai/sdk/web/v2/openpush.js");
     expect(coreUrl("https://push.example.com/sdk/web/2.0.0/openpush-compat.js")).toBe("https://push.example.com/sdk/web/2.0.0/openpush.js");
-    expect(coreUrl(undefined)).toMatch(/^https:\/\/app\.openpush\.ai\/sdk\/web\/1\.1\.[^/]+\/openpush\.js$/);
+    expect(coreUrl(undefined)).toMatch(/^https:\/\/app\.openpush\.ai\/sdk\/web\/1\.2\.[^/]+\/openpush\.js$/);
   });
 
   it("uses window.OpenPush when it is already on the page", async () => {

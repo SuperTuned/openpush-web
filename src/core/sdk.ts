@@ -3,6 +3,7 @@ import { OpenPushError } from "../errors";
 import { DEFAULT_LOG_LEVEL, isLogLevel, levelFromQuery, type LogLevel } from "../log/levels";
 import { Logger, type LogListener } from "../log/logger";
 import { HttpClient } from "../net/http";
+import { isRequestHeadersOption, RequestHeaders } from "../net/request_headers";
 import { IdbQueueStorage, WriteQueue } from "../net/queue";
 import type { Platform } from "../platform/types";
 import { Db } from "../storage/idb";
@@ -125,7 +126,7 @@ export class Runtime {
   readonly verify: VerifyApi;
   /** The prompt loader and prompt event listeners. */
   readonly prompts: PromptsHub;
-  /** `sdk_wrapper` for registrations, set by a framework wrapper ("react/1.1.0"). */
+  /** `sdk_wrapper` for registrations, set by a framework wrapper ("react/1.2.0"). */
   sdkWrapper: string | undefined;
   hooks: LifecycleHooks;
   context: InitContext | undefined;
@@ -134,6 +135,7 @@ export class Runtime {
   private optionLevel: LogLevel | undefined;
   private pendingLevel: LogLevel | undefined;
   private sdkKey: string | undefined;
+  private requestHeaders: RequestHeaders | undefined;
   private readonly bridge: WorkerBridge;
 
   constructor(private readonly deps: SdkDeps) {
@@ -255,6 +257,19 @@ export class Runtime {
     return this.initPromise;
   }
 
+  /**
+   * Detaches the user, then removes the stored copy of `requestHeaders`. In that order: the detach
+   * request resolves the option, which would store the copy again.
+   */
+  async logout(): Promise<void> {
+    await this.ready();
+    try {
+      await this.user.logout();
+    } finally {
+      await this.requestHeaders?.clear();
+    }
+  }
+
   setLogLevel(level: LogLevel): void {
     if (!isLogLevel(level)) throw new OpenPushError("invalid_argument", `Unknown log level "${String(level)}"`);
     this.log.setLevel(level);
@@ -273,6 +288,9 @@ export class Runtime {
     }
     if (options.logLevel !== undefined && !isLogLevel(options.logLevel)) {
       throw new OpenPushError("invalid_argument", `Unknown log level "${String(options.logLevel)}"`);
+    }
+    if (options.requestHeaders !== undefined && !isRequestHeadersOption(options.requestHeaders)) {
+      throw new OpenPushError("invalid_argument", "requestHeaders must be an object or a function that returns one");
     }
     resolveServerUrl(options.serverUrl, this.deps.scriptSrc);
   }
@@ -318,7 +336,17 @@ export class Runtime {
     const factory = platform.indexedDB();
     const db: SdkDb = factory ? new Db(factory, allowed, log) : new MemoryDb(allowed);
     const previousCfg = await db.readCfg().catch(() => undefined);
-    const http = new HttpClient({ fetch: platform.fetch, serverUrl: () => serverUrl, sdkKey: () => this.sdkKey, log, allowed });
+    const requestHeaders = new RequestHeaders({ option: code.requestHeaders, db, log, timers: platform.timers });
+    this.requestHeaders = requestHeaders;
+    const headersSynced = requestHeaders.sync();
+    const http = new HttpClient({
+      fetch: platform.fetch,
+      serverUrl: () => serverUrl,
+      sdkKey: () => this.sdkKey,
+      log,
+      allowed,
+      extraHeaders: () => requestHeaders.resolve(),
+    });
     const queue = new WriteQueue({
       storage: new IdbQueueStorage(db),
       http,
@@ -362,7 +390,8 @@ export class Runtime {
     };
     this.context = ctx;
 
-    // Step 5: the worker.
+    // Step 5: the worker, once it can read the request headers it sends receipts with.
+    await headersSynced;
     if (!ctx.pushBlocked) await this.registerWorker(ctx);
 
     // Steps 6 and 7: filled by later modules.
@@ -550,7 +579,7 @@ export function createOpenPush(deps: SdkDeps): { api: OpenPushApi; runtime: Runt
     initialize,
     ...v1,
     login: (externalId, authHash) => runtime.user.login(externalId, authHash),
-    logout: () => runtime.user.logout(),
+    logout: () => runtime.logout(),
     onIdentityVerificationRequired: (handler) => runtime.user.setIdentityHandler(handler),
     setConsentRequired: (required) => runtime.consent.setRequired(required === true),
     setConsentGiven: (given) => runtime.consent.setGiven(given === true),
