@@ -1,0 +1,57 @@
+/** Default prompt wording: Turkish. */
+import type { Strings } from "./strings";
+
+export const tr: Strings = {
+  slide_in: {
+    message: "Yeni bir şey olduğunda bildirim alın.",
+    allow: "İzin ver",
+    later: "Şimdi değil",
+    update_message: "Hangi konularda bildirim alacağınızı seçin.",
+    save: "Kaydet",
+    cancel: "İptal",
+    ios_message: "Bildirim almak için bu siteyi Ana Ekran'a ekleyin.",
+    ios_step_share: "Tarayıcı çubuğunda Paylaş'a dokunun.",
+    ios_step_add: "Ana Ekrana Ekle'yi seçin.",
+    ios_step_open: "Siteyi yeni simgesinden açın.",
+  },
+  bell: {
+    tip_not_subscribed: "Bildirim al",
+    tip_subscribed: "Bildirimler açık",
+    tip_blocked: "Bildirimler engellendi",
+    after_subscribe: "Teşekkürler! Bildirimler açık.",
+    after_unsubscribe: "Bildirimler kapatıldı.",
+    dialog_title: "Bildirimler",
+    subscribe: "Bildirimleri aç",
+    unsubscribe: "Bildirimleri kapat",
+    blocked_title: "Bildirimler engellendi",
+    blocked_help: "İzin vermek için tarayıcınızda bu sitenin ayarlarını açın.",
+    aria_label: "Bildirim ayarları",
+    close: "Kapat",
+  },
+  button: {
+    subscribe: "Bildirim al",
+    unsubscribe: "Bildirimleri durdur",
+    explanation: "",
+    blocked: "Bu tarayıcıda engellendi",
+  },
+  email_phone: {
+    message: "Haberlerimizi doğrudan alın.",
+    email_label: "E-posta adresi",
+    phone_label: "Telefon numarası",
+    submit: "Kaydol",
+    later: "Şimdi değil",
+    confirm: "Kaydolduğunuz için teşekkürler.",
+    code_label: "Telefonunuza gelen kod",
+    code_submit: "Onayla",
+    invalid_email: "Geçerli bir e-posta adresi girin.",
+    invalid_phone: "Numarayı ülke koduyla girin, örneğin +90.",
+    code_wrong: "Kod eşleşmedi. Tekrar deneyin.",
+    error: "Bir sorun oluştu. Daha sonra tekrar deneyin.",
+    close: "Kapat",
+  },
+  verify: {
+    message: "{site} kurulumunu tamamlamak için bildirimlere izin verin",
+    allow: "İzin ver",
+    close: "Kapat",
+  },
+};

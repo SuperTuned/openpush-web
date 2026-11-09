@@ -1,0 +1,15 @@
+OpenPush Web SDK
+Copyright 2026 JuneSoftware Inc
+
+Licensed under the Apache License, Version 2.0 (see LICENSE). This covers
+everything in this repository except the folder below.
+
+The WordPress plugin in integrations/wordpress/openpush/ is licensed under the
+GNU General Public License, version 2 or (at your option) any later version
+(GPL-2.0-or-later), as WordPress plugins are. Its licence text is
+integrations/wordpress/openpush/LICENSE.
+
+OneSignal is a trademark of OneSignal, Inc. OpenPush is not affiliated with,
+endorsed by, or sponsored by OneSignal, Inc. The OneSignal name appears only
+to describe the optional compatibility layer (openpush-compat.js and
+@openpush/web/compat) for sites migrating from the OneSignal Web SDK.

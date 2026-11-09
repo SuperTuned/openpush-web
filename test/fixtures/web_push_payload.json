@@ -1,0 +1,21 @@
+{
+  "body": "Everything 20% off today",
+  "campaign": "spring",
+  "deep_link": "https://example.com/sale",
+  "image_url": "https://cdn.example.com/hero.png",
+  "op_app": "fixture-app",
+  "op_collapse_id": "spring-sale",
+  "op_message_id": "msg_fixture",
+  "op_v": "2",
+  "op_web_badge": "https://cdn.example.com/badge.png",
+  "op_web_buttons": "[{\"id\":\"shop\",\"label\":\"Shop now\",\"url\":\"https://example.com/shop\",\"icon\":\"https://cdn.example.com/cart.png\"},{\"id\":\"b2\",\"label\":\"Later\",\"url\":\"/later?op_open=0\"}]",
+  "op_web_icon": "https://cdn.example.com/icon.png",
+  "op_web_image": "https://cdn.example.com/large.png",
+  "op_web_renotify": "1",
+  "op_web_require_interaction": "1",
+  "op_web_silent": "1",
+  "op_web_tag": "sale",
+  "op_web_topic": "spring-sale",
+  "op_web_urgency": "high",
+  "title": "Spring sale"
+}

@@ -1,0 +1,57 @@
+/** Default prompt wording: Hindi. */
+import type { Strings } from "./strings";
+
+export const hi: Strings = {
+  slide_in: {
+    message: "कुछ नया आने पर सूचना पाएँ।",
+    allow: "अनुमति दें",
+    later: "अभी नहीं",
+    update_message: "चुनें कि आपको किन बातों की सूचना मिले।",
+    save: "सहेजें",
+    cancel: "रद्द करें",
+    ios_message: "सूचनाएँ पाने के लिए यह साइट होम स्क्रीन पर जोड़ें।",
+    ios_step_share: "ब्राउज़र बार में शेयर पर टैप करें।",
+    ios_step_add: "होम स्क्रीन में जोड़ें चुनें।",
+    ios_step_open: "नए आइकन से साइट खोलें।",
+  },
+  bell: {
+    tip_not_subscribed: "सूचनाएँ पाएँ",
+    tip_subscribed: "सूचनाएँ चालू हैं",
+    tip_blocked: "सूचनाएँ ब्लॉक हैं",
+    after_subscribe: "धन्यवाद! सूचनाएँ चालू हो गईं।",
+    after_unsubscribe: "सूचनाएँ बंद हो गईं।",
+    dialog_title: "सूचनाएँ",
+    subscribe: "सूचनाएँ चालू करें",
+    unsubscribe: "सूचनाएँ बंद करें",
+    blocked_title: "सूचनाएँ ब्लॉक हैं",
+    blocked_help: "अनुमति देने के लिए ब्राउज़र में इस साइट की सेटिंग खोलें।",
+    aria_label: "सूचना सेटिंग",
+    close: "बंद करें",
+  },
+  button: {
+    subscribe: "सूचनाएँ पाएँ",
+    unsubscribe: "सूचनाएँ बंद करें",
+    explanation: "",
+    blocked: "इस ब्राउज़र में ब्लॉक है",
+  },
+  email_phone: {
+    message: "हमारी ख़बरें सीधे आप तक पहुँचें।",
+    email_label: "ईमेल पता",
+    phone_label: "फ़ोन नंबर",
+    submit: "साइन अप करें",
+    later: "अभी नहीं",
+    confirm: "साइन अप करने के लिए धन्यवाद।",
+    code_label: "आपके फ़ोन पर भेजा गया कोड",
+    code_submit: "पुष्टि करें",
+    invalid_email: "सही ईमेल पता लिखें।",
+    invalid_phone: "नंबर देश कोड के साथ लिखें, जैसे +91।",
+    code_wrong: "यह कोड सही नहीं है। फिर से कोशिश करें।",
+    error: "कुछ गड़बड़ हो गई। बाद में फिर से कोशिश करें।",
+    close: "बंद करें",
+  },
+  verify: {
+    message: "{site} का सेटअप पूरा करने के लिए सूचनाओं की अनुमति दें",
+    allow: "अनुमति दें",
+    close: "बंद करें",
+  },
+};

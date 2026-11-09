@@ -1,0 +1,57 @@
+/** Default prompt wording: Portuguese (Brazil). */
+import type { Strings } from "./strings";
+
+export const pt: Strings = {
+  slide_in: {
+    message: "Receba um aviso quando houver novidades.",
+    allow: "Permitir",
+    later: "Agora não",
+    update_message: "Escolha sobre o que quer receber avisos.",
+    save: "Salvar",
+    cancel: "Cancelar",
+    ios_message: "Adicione este site à Tela de Início para receber notificações.",
+    ios_step_share: "Toque em Compartilhar na barra do navegador.",
+    ios_step_add: "Escolha Adicionar à Tela de Início.",
+    ios_step_open: "Abra o site pelo novo ícone.",
+  },
+  bell: {
+    tip_not_subscribed: "Receber notificações",
+    tip_subscribed: "Notificações ativadas",
+    tip_blocked: "Notificações bloqueadas",
+    after_subscribe: "Obrigado! Notificações ativadas.",
+    after_unsubscribe: "Notificações desativadas.",
+    dialog_title: "Notificações",
+    subscribe: "Ativar",
+    unsubscribe: "Desativar",
+    blocked_title: "Notificações bloqueadas",
+    blocked_help: "Para permitir, abra as configurações deste site no navegador.",
+    aria_label: "Configurações de notificações",
+    close: "Fechar",
+  },
+  button: {
+    subscribe: "Ativar avisos",
+    unsubscribe: "Desativar avisos",
+    explanation: "",
+    blocked: "Bloqueadas neste navegador",
+  },
+  email_phone: {
+    message: "Receba nossas novidades direto com você.",
+    email_label: "E-mail",
+    phone_label: "Número de telefone",
+    submit: "Inscrever-me",
+    later: "Agora não",
+    confirm: "Obrigado por se inscrever.",
+    code_label: "Código enviado ao seu telefone",
+    code_submit: "Confirmar",
+    invalid_email: "Digite um e-mail válido.",
+    invalid_phone: "Digite o número com o código do país, como +55.",
+    code_wrong: "Esse código não funcionou. Tente de novo.",
+    error: "Algo deu errado. Tente mais tarde.",
+    close: "Fechar",
+  },
+  verify: {
+    message: "Permita as notificações para concluir a configuração de {site}",
+    allow: "Permitir",
+    close: "Fechar",
+  },
+};

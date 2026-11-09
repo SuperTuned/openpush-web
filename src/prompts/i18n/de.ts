@@ -1,0 +1,57 @@
+/** Default prompt wording: German. */
+import type { Strings } from "./strings";
+
+export const de: Strings = {
+  slide_in: {
+    message: "Lassen Sie sich benachrichtigen, wenn es Neues gibt.",
+    allow: "Erlauben",
+    later: "Später",
+    update_message: "Wählen Sie, worüber Sie informiert werden.",
+    save: "Speichern",
+    cancel: "Abbrechen",
+    ios_message: "Fügen Sie diese Seite zum Home-Bildschirm hinzu, um Mitteilungen zu erhalten.",
+    ios_step_share: "Tippen Sie in der Browserleiste auf Teilen.",
+    ios_step_add: "Wählen Sie Zum Home-Bildschirm.",
+    ios_step_open: "Öffnen Sie die Seite über das neue Symbol.",
+  },
+  bell: {
+    tip_not_subscribed: "Benachrichtigungen erhalten",
+    tip_subscribed: "Benachrichtigungen sind an",
+    tip_blocked: "Benachrichtigungen sind blockiert",
+    after_subscribe: "Danke! Benachrichtigungen sind an.",
+    after_unsubscribe: "Benachrichtigungen sind aus.",
+    dialog_title: "Benachrichtigungen",
+    subscribe: "Einschalten",
+    unsubscribe: "Ausschalten",
+    blocked_title: "Benachrichtigungen sind blockiert",
+    blocked_help: "Erlauben Sie sie in den Einstellungen dieser Website in Ihrem Browser.",
+    aria_label: "Benachrichtigungseinstellungen",
+    close: "Schließen",
+  },
+  button: {
+    subscribe: "Abonnieren",
+    unsubscribe: "Abbestellen",
+    explanation: "",
+    blocked: "In diesem Browser blockiert",
+  },
+  email_phone: {
+    message: "Erhalten Sie unsere Neuigkeiten direkt.",
+    email_label: "E-Mail-Adresse",
+    phone_label: "Telefonnummer",
+    submit: "Anmelden",
+    later: "Später",
+    confirm: "Danke für Ihre Anmeldung.",
+    code_label: "An Ihr Telefon gesendeter Code",
+    code_submit: "Bestätigen",
+    invalid_email: "Geben Sie eine gültige E-Mail-Adresse ein.",
+    invalid_phone: "Geben Sie die Nummer mit Ländervorwahl ein, z. B. +49.",
+    code_wrong: "Dieser Code passt nicht. Versuchen Sie es erneut.",
+    error: "Etwas ist schiefgelaufen. Versuchen Sie es später erneut.",
+    close: "Schließen",
+  },
+  verify: {
+    message: "Erlauben Sie Benachrichtigungen, um die Einrichtung von {site} abzuschließen",
+    allow: "Erlauben",
+    close: "Schließen",
+  },
+};

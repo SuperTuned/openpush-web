@@ -1,0 +1,29 @@
+{
+    "name": "openpush/wordpress-plugin",
+    "description": "OpenPush for WordPress: web push for your site.",
+    "type": "wordpress-plugin",
+    "license": "GPL-2.0-or-later",
+    "private": true,
+    "require": {
+        "php": ">=7.4"
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        },
+        "sort-packages": true
+    },
+    "scripts": {
+        "lint": [
+            "find . -name '*.php' -not -path './vendor/*' -print0 | xargs -0 -n1 php -l",
+            "phpcs"
+        ],
+        "fix": "phpcbf",
+        "test": "phpunit"
+    },
+    "require-dev": {
+        "phpcompatibility/phpcompatibility-wp": "2.1.8",
+        "phpunit/phpunit": "13.4.6",
+        "wp-coding-standards/wpcs": "3.4.1"
+    }
+}

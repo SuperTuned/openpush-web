@@ -1,0 +1,22 @@
+# Exceptions for scripts/check-public-content.sh, one per line:
+#   <path glob> <pattern id> [<line regex>] -- <reason>
+# Keep this list as short as possible. An entry that matches nothing fails the check.
+
+# The ignore rules that keep working notes and agent state out of the repository.
+.gitignore internal-doc ^(PRODUCT|DESIGN)\.md$ -- ignore rules for local working notes
+.gitignore agent-path ^\.(impeccable|claude|superpowers)/$ -- ignore rules for local tool state
+
+# NOTICE and the migration guide carry the trademark and non-affiliation notice.
+NOTICE onesignal -- trademark and non-affiliation notice
+NOTICE onesignal-inc -- trademark and non-affiliation notice
+MIGRATING-FROM-ONESIGNAL.md onesignal -- migration guide for the compatibility layer
+MIGRATING-FROM-ONESIGNAL.md onesignal-inc -- trademark notice in the migration guide
+
+# The compatibility layer and its tests: it provides the previous SDK's global names, option names
+# and worker file name for migrating sites.
+src/compat/** onesignal -- the compatibility layer provides the previous SDK's API names for migrating sites
+test/compat/** onesignal -- tests of the compatibility layer
+
+# Third-party package metadata: the WordPress plugin's Composer lock file lists the authors of its
+# dev-only lint and test tools, with the contact addresses those packages publish.
+integrations/wordpress/openpush/composer.lock email ^\s*"email": " -- author contacts published by third-party Composer packages (dev tools only)

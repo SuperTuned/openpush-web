@@ -1,0 +1,8 @@
+{
+  "extends": "../tsconfig.base.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "paths": { "@openpush/web": ["../../src/npm/index.ts"] }
+  },
+  "include": ["src", "test"]
+}

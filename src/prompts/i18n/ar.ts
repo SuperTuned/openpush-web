@@ -1,0 +1,57 @@
+/** Default prompt wording: Arabic. */
+import type { Strings } from "./strings";
+
+export const ar: Strings = {
+  slide_in: {
+    message: "احصل على إشعار عند وجود شيء جديد.",
+    allow: "السماح",
+    later: "ليس الآن",
+    update_message: "اختر ما تريد تلقي الإشعارات عنه.",
+    save: "حفظ",
+    cancel: "إلغاء",
+    ios_message: "أضف هذا الموقع إلى الشاشة الرئيسية لتلقي الإشعارات.",
+    ios_step_share: "اضغط على مشاركة في شريط المتصفح.",
+    ios_step_add: "اختر إضافة إلى الشاشة الرئيسية.",
+    ios_step_open: "افتح الموقع من أيقونته الجديدة.",
+  },
+  bell: {
+    tip_not_subscribed: "تلقَّ الإشعارات",
+    tip_subscribed: "الإشعارات مفعّلة",
+    tip_blocked: "الإشعارات محظورة",
+    after_subscribe: "شكرًا! تم تفعيل الإشعارات.",
+    after_unsubscribe: "تم إيقاف الإشعارات.",
+    dialog_title: "الإشعارات",
+    subscribe: "تفعيل",
+    unsubscribe: "إيقاف",
+    blocked_title: "الإشعارات محظورة",
+    blocked_help: "للسماح بها، افتح إعدادات هذا الموقع في المتصفح.",
+    aria_label: "إعدادات الإشعارات",
+    close: "إغلاق",
+  },
+  button: {
+    subscribe: "تفعيل الإشعارات",
+    unsubscribe: "إيقاف الإشعارات",
+    explanation: "",
+    blocked: "محظورة في هذا المتصفح",
+  },
+  email_phone: {
+    message: "احصل على أخبارنا مباشرة.",
+    email_label: "البريد الإلكتروني",
+    phone_label: "رقم الهاتف",
+    submit: "اشترك",
+    later: "ليس الآن",
+    confirm: "شكرًا لاشتراكك.",
+    code_label: "الرمز المرسل إلى هاتفك",
+    code_submit: "تأكيد",
+    invalid_email: "أدخل بريدًا إلكترونيًا صحيحًا.",
+    invalid_phone: "أدخل الرقم مع رمز الدولة، مثل +971.",
+    code_wrong: "الرمز غير صحيح. حاول مرة أخرى.",
+    error: "حدث خطأ. حاول لاحقًا.",
+    close: "إغلاق",
+  },
+  verify: {
+    message: "اسمح بالإشعارات لإكمال إعداد {site}",
+    allow: "السماح",
+    close: "إغلاق",
+  },
+};

@@ -1,0 +1,57 @@
+/** Default prompt wording: Korean. */
+import type { Strings } from "./strings";
+
+export const ko: Strings = {
+  slide_in: {
+    message: "새로운 소식이 있을 때 알림을 받아 보세요.",
+    allow: "허용",
+    later: "나중에",
+    update_message: "알림을 받을 주제를 선택하세요.",
+    save: "저장",
+    cancel: "취소",
+    ios_message: "알림을 받으려면 이 사이트를 홈 화면에 추가하세요.",
+    ios_step_share: "브라우저 막대에서 공유를 탭하세요.",
+    ios_step_add: "홈 화면에 추가를 선택하세요.",
+    ios_step_open: "새 아이콘으로 사이트를 여세요.",
+  },
+  bell: {
+    tip_not_subscribed: "알림 받기",
+    tip_subscribed: "알림이 켜져 있습니다",
+    tip_blocked: "알림이 차단되어 있습니다",
+    after_subscribe: "감사합니다! 알림이 켜졌습니다.",
+    after_unsubscribe: "알림이 꺼졌습니다.",
+    dialog_title: "알림",
+    subscribe: "켜기",
+    unsubscribe: "끄기",
+    blocked_title: "알림이 차단되어 있습니다",
+    blocked_help: "허용하려면 브라우저에서 이 사이트 설정을 열고 알림을 허용하세요.",
+    aria_label: "알림 설정",
+    close: "닫기",
+  },
+  button: {
+    subscribe: "알림 받기",
+    unsubscribe: "알림 끄기",
+    explanation: "",
+    blocked: "이 브라우저에서 차단됨",
+  },
+  email_phone: {
+    message: "새로운 소식을 바로 받아 보세요.",
+    email_label: "이메일 주소",
+    phone_label: "전화번호",
+    submit: "신청하기",
+    later: "나중에",
+    confirm: "신청해 주셔서 감사합니다.",
+    code_label: "휴대폰으로 받은 코드",
+    code_submit: "확인",
+    invalid_email: "올바른 이메일 주소를 입력하세요.",
+    invalid_phone: "국가 번호를 포함해 입력하세요(예: +82).",
+    code_wrong: "코드가 맞지 않습니다. 다시 시도하세요.",
+    error: "문제가 발생했습니다. 나중에 다시 시도하세요.",
+    close: "닫기",
+  },
+  verify: {
+    message: "{site} 설정을 마치려면 알림을 허용하세요",
+    allow: "허용",
+    close: "닫기",
+  },
+};

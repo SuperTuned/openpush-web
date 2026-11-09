@@ -1,0 +1,53 @@
+{
+  "name": "@openpush/angular",
+  "version": "1.1.0",
+  "description": "OpenPush web push for Angular: providers and a service with signals over @openpush/web.",
+  "private": true,
+  "license": "Apache-2.0",
+  "author": "JuneSoftware Inc",
+  "homepage": "https://github.com/SuperTuned/openpush-web/tree/main/packages/angular#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SuperTuned/openpush-web.git",
+    "directory": "packages/angular"
+  },
+  "bugs": {
+    "url": "https://github.com/SuperTuned/openpush-web/issues"
+  },
+  "keywords": [
+    "web push",
+    "push notifications",
+    "service worker",
+    "openpush",
+    "angular"
+  ],
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "NOTICE"
+  ],
+  "sideEffects": false,
+  "peerDependencies": {
+    "@angular/core": ">=19.0.0",
+    "@openpush/web": "1.1.0"
+  },
+  "devDependencies": {
+    "@angular/compiler": "22.2.3",
+    "@angular/compiler-cli": "22.2.3",
+    "@angular/core": "22.2.3",
+    "rxjs": "7.8.2"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "name": "@openpush/web",
+  "version": "1.1.0",
+  "description": "OpenPush Web SDK: web push for your site, with one script tag or one npm package.",
+  "private": true,
+  "license": "Apache-2.0",
+  "author": "JuneSoftware Inc",
+  "homepage": "https://github.com/SuperTuned/openpush-web#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SuperTuned/openpush-web.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SuperTuned/openpush-web/issues"
+  },
+  "keywords": [
+    "web push",
+    "push notifications",
+    "service worker",
+    "openpush",
+    "notifications"
+  ],
+  "type": "module",
+  "main": "./dist/npm/index.cjs",
+  "module": "./dist/npm/index.mjs",
+  "types": "./dist/npm/openpush.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/npm/openpush.d.ts",
+      "import": "./dist/npm/index.mjs",
+      "require": "./dist/npm/index.cjs"
+    },
+    "./compat": {
+      "types": "./dist/npm/compat.d.ts",
+      "import": "./dist/npm/compat.mjs",
+      "require": "./dist/npm/compat.cjs"
+    },
+    "./prompts": {
+      "types": "./dist/npm/prompts.d.ts",
+      "import": "./dist/npm/prompts.mjs",
+      "require": "./dist/npm/prompts.cjs"
+    },
+    "./sw": "./dist/cdn/openpush-sw.js",
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "openpush-web": "./bin/openpush-web.mjs"
+  },
+  "files": [
+    "dist/npm",
+    "dist/cdn/openpush-sw.js",
+    "bin",
+    "NOTICE"
+  ],
+  "sideEffects": [
+    "./dist/npm/prompts.mjs",
+    "./dist/npm/prompts.cjs",
+    "./dist/cdn/openpush-sw.js"
+  ],
+  "workspaces": [
+    "packages/*"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs && node scripts/size-check.mjs && node scripts/build-packages.mjs",
+    "size": "node scripts/size-check.mjs",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit -p tsconfig.json && tsc -p packages/react/tsconfig.json && tsc -p packages/vue/tsconfig.json && tsc -p packages/angular/tsconfig.json",
+    "build:packages": "node scripts/build-packages.mjs",
+    "build:wordpress": "node scripts/build-wordpress.mjs",
+    "lint:wordpress": "cd integrations/wordpress/openpush && composer install --quiet && composer lint"
+  },
+  "devDependencies": {
+    "@types/node": "26.6.6",
+    "dts-bundle-generator": "9.5.1",
+    "fake-indexeddb": "6.2.6",
+    "happy-dom": "21.0.4",
+    "typescript": "6.0.3",
+    "vite": "8.3.4",
+    "vitest": "5.0.5"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

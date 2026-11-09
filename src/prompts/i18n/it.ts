@@ -1,0 +1,57 @@
+/** Default prompt wording: Italian. */
+import type { Strings } from "./strings";
+
+export const it: Strings = {
+  slide_in: {
+    message: "Ricevi un avviso quando c'è qualcosa di nuovo.",
+    allow: "Consenti",
+    later: "Non ora",
+    update_message: "Scegli su cosa ricevere avvisi.",
+    save: "Salva",
+    cancel: "Annulla",
+    ios_message: "Aggiungi questo sito alla schermata Home per ricevere notifiche.",
+    ios_step_share: "Tocca Condividi nella barra del browser.",
+    ios_step_add: "Scegli Aggiungi alla schermata Home.",
+    ios_step_open: "Apri il sito dalla nuova icona.",
+  },
+  bell: {
+    tip_not_subscribed: "Ricevi notifiche",
+    tip_subscribed: "Notifiche attive",
+    tip_blocked: "Notifiche bloccate",
+    after_subscribe: "Grazie! Notifiche attive.",
+    after_unsubscribe: "Notifiche disattivate.",
+    dialog_title: "Notifiche",
+    subscribe: "Attiva",
+    unsubscribe: "Disattiva",
+    blocked_title: "Notifiche bloccate",
+    blocked_help: "Per consentirle, apri le impostazioni di questo sito nel browser.",
+    aria_label: "Impostazioni notifiche",
+    close: "Chiudi",
+  },
+  button: {
+    subscribe: "Attiva notifiche",
+    unsubscribe: "Disattiva notifiche",
+    explanation: "",
+    blocked: "Bloccate in questo browser",
+  },
+  email_phone: {
+    message: "Ricevi le nostre novità direttamente.",
+    email_label: "Indirizzo email",
+    phone_label: "Numero di telefono",
+    submit: "Iscriviti",
+    later: "Non ora",
+    confirm: "Grazie per l'iscrizione.",
+    code_label: "Codice inviato al tuo telefono",
+    code_submit: "Conferma",
+    invalid_email: "Inserisci un indirizzo email valido.",
+    invalid_phone: "Inserisci il numero con il prefisso internazionale, come +39.",
+    code_wrong: "Il codice non è corretto. Riprova.",
+    error: "Qualcosa è andato storto. Riprova più tardi.",
+    close: "Chiudi",
+  },
+  verify: {
+    message: "Consenti le notifiche per completare la configurazione di {site}",
+    allow: "Consenti",
+    close: "Chiudi",
+  },
+};

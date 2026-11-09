@@ -1,0 +1,57 @@
+/** Default prompt wording: Japanese. */
+import type { Strings } from "./strings";
+
+export const ja: Strings = {
+  slide_in: {
+    message: "新しい情報があるときに通知でお知らせします。",
+    allow: "許可",
+    later: "後で",
+    update_message: "通知を受け取る内容を選んでください。",
+    save: "保存",
+    cancel: "キャンセル",
+    ios_message: "通知を受け取るには、このサイトをホーム画面に追加してください。",
+    ios_step_share: "ブラウザのバーで共有をタップします。",
+    ios_step_add: "「ホーム画面に追加」を選びます。",
+    ios_step_open: "新しいアイコンからサイトを開きます。",
+  },
+  bell: {
+    tip_not_subscribed: "通知を受け取る",
+    tip_subscribed: "通知はオンです",
+    tip_blocked: "通知はブロックされています",
+    after_subscribe: "ありがとうございます。通知がオンになりました。",
+    after_unsubscribe: "通知をオフにしました。",
+    dialog_title: "通知",
+    subscribe: "オンにする",
+    unsubscribe: "オフにする",
+    blocked_title: "通知はブロックされています",
+    blocked_help: "許可するには、ブラウザでこのサイトの設定を開いて通知を許可してください。",
+    aria_label: "通知の設定",
+    close: "閉じる",
+  },
+  button: {
+    subscribe: "通知を受け取る",
+    unsubscribe: "通知を停止",
+    explanation: "",
+    blocked: "このブラウザでブロック中",
+  },
+  email_phone: {
+    message: "最新情報を直接お届けします。",
+    email_label: "メールアドレス",
+    phone_label: "電話番号",
+    submit: "登録する",
+    later: "後で",
+    confirm: "ご登録ありがとうございます。",
+    code_label: "電話に届いたコード",
+    code_submit: "確認",
+    invalid_email: "正しいメールアドレスを入力してください。",
+    invalid_phone: "国番号から入力してください（例: +81）。",
+    code_wrong: "コードが正しくありません。もう一度お試しください。",
+    error: "問題が発生しました。後でもう一度お試しください。",
+    close: "閉じる",
+  },
+  verify: {
+    message: "{site} の設定を完了するには、通知を許可してください",
+    allow: "許可",
+    close: "閉じる",
+  },
+};

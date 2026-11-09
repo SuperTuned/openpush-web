@@ -1,0 +1,57 @@
+/** Default prompt wording: Indonesian. */
+import type { Strings } from "./strings";
+
+export const id: Strings = {
+  slide_in: {
+    message: "Dapatkan notifikasi saat ada yang baru.",
+    allow: "Izinkan",
+    later: "Nanti saja",
+    update_message: "Pilih topik notifikasi yang Anda inginkan.",
+    save: "Simpan",
+    cancel: "Batal",
+    ios_message: "Tambahkan situs ini ke Layar Utama untuk menerima notifikasi.",
+    ios_step_share: "Ketuk Bagikan di bilah browser.",
+    ios_step_add: "Pilih Tambah ke Layar Utama.",
+    ios_step_open: "Buka situs dari ikon barunya.",
+  },
+  bell: {
+    tip_not_subscribed: "Dapatkan notifikasi",
+    tip_subscribed: "Notifikasi aktif",
+    tip_blocked: "Notifikasi diblokir",
+    after_subscribe: "Terima kasih! Notifikasi aktif.",
+    after_unsubscribe: "Notifikasi nonaktif.",
+    dialog_title: "Notifikasi",
+    subscribe: "Aktifkan",
+    unsubscribe: "Nonaktifkan",
+    blocked_title: "Notifikasi diblokir",
+    blocked_help: "Untuk mengizinkan, buka setelan situs ini di browser Anda.",
+    aria_label: "Setelan notifikasi",
+    close: "Tutup",
+  },
+  button: {
+    subscribe: "Aktifkan notifikasi",
+    unsubscribe: "Matikan notifikasi",
+    explanation: "",
+    blocked: "Diblokir di browser ini",
+  },
+  email_phone: {
+    message: "Dapatkan kabar terbaru langsung dari kami.",
+    email_label: "Alamat email",
+    phone_label: "Nomor telepon",
+    submit: "Daftar",
+    later: "Nanti saja",
+    confirm: "Terima kasih sudah mendaftar.",
+    code_label: "Kode yang dikirim ke ponsel Anda",
+    code_submit: "Konfirmasi",
+    invalid_email: "Masukkan alamat email yang valid.",
+    invalid_phone: "Masukkan nomor dengan kode negara, misalnya +62.",
+    code_wrong: "Kode tidak cocok. Coba lagi.",
+    error: "Terjadi masalah. Coba lagi nanti.",
+    close: "Tutup",
+  },
+  verify: {
+    message: "Izinkan notifikasi untuk menyelesaikan penyiapan {site}",
+    allow: "Izinkan",
+    close: "Tutup",
+  },
+};

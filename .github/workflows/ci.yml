@@ -1,0 +1,55 @@
+name: CI
+
+# Pull requests and pushes to main.
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+# A newer push to the same pull request cancels the run it supersedes; runs on
+# main always finish.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+permissions:
+  contents: read
+
+jobs:
+  sdk:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 22
+          cache: npm
+      - name: Install
+        run: npm ci
+      - name: Typecheck
+        run: npm run typecheck
+      # Builds dist/cdn, dist/npm and the wrappers, and fails when a script-tag
+      # file is over its gzip budget. It runs before the tests so the tests that
+      # read the built files (the API surface, the npm entries) run too.
+      - name: Build and check size budgets
+        run: npm run build
+      - name: Test
+        run: npm test
+      - name: Build the WordPress plugin zip
+        run: npm run build:wordpress
+
+  public-content:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+        with:
+          persist-credentials: false
+      # Names, paths, markers and secrets that must not be published.
+      # See scripts/check-public-content.sh.
+      - name: Check public content
+        run: scripts/check-public-content.sh

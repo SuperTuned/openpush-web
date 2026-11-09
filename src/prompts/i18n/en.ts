@@ -1,0 +1,57 @@
+/** Default prompt wording: English. */
+import type { Strings } from "./strings";
+
+export const en: Strings = {
+  slide_in: {
+    message: "Get a notification when something new comes out.",
+    allow: "Allow",
+    later: "Not now",
+    update_message: "Choose what you get notified about.",
+    save: "Save",
+    cancel: "Cancel",
+    ios_message: "Add this site to your Home Screen to get notifications.",
+    ios_step_share: "Tap Share in the browser bar.",
+    ios_step_add: "Choose Add to Home Screen.",
+    ios_step_open: "Open the site from its new icon.",
+  },
+  bell: {
+    tip_not_subscribed: "Get notifications",
+    tip_subscribed: "Notifications are on",
+    tip_blocked: "Notifications are blocked",
+    after_subscribe: "Thanks! Notifications are on.",
+    after_unsubscribe: "Notifications are off.",
+    dialog_title: "Notifications",
+    subscribe: "Turn on",
+    unsubscribe: "Turn off",
+    blocked_title: "Notifications are blocked",
+    blocked_help: "To allow them, open this site's settings in your browser and allow notifications.",
+    aria_label: "Notification settings",
+    close: "Close",
+  },
+  button: {
+    subscribe: "Get notifications",
+    unsubscribe: "Stop notifications",
+    explanation: "",
+    blocked: "Blocked in this browser",
+  },
+  email_phone: {
+    message: "Get our news sent straight to you.",
+    email_label: "Email address",
+    phone_label: "Phone number",
+    submit: "Sign up",
+    later: "Not now",
+    confirm: "Thanks for signing up.",
+    code_label: "Code sent to your phone",
+    code_submit: "Confirm",
+    invalid_email: "Enter a valid email address.",
+    invalid_phone: "Enter the number with its country code, like +1.",
+    code_wrong: "That code didn't work. Try again.",
+    error: "Something went wrong. Try again later.",
+    close: "Close",
+  },
+  verify: {
+    message: "Allow notifications to finish setting up {site}",
+    allow: "Allow",
+    close: "Close",
+  },
+};

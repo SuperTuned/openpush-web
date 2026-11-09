@@ -1,0 +1,57 @@
+/** Default prompt wording: Chinese (Simplified). */
+import type { Strings } from "./strings";
+
+export const zh: Strings = {
+  slide_in: {
+    message: "有新内容时，第一时间通知你。",
+    allow: "允许",
+    later: "以后再说",
+    update_message: "选择你想接收通知的内容。",
+    save: "保存",
+    cancel: "取消",
+    ios_message: "将此网站添加到主屏幕即可接收通知。",
+    ios_step_share: "轻点浏览器栏中的“分享”。",
+    ios_step_add: "选择“添加到主屏幕”。",
+    ios_step_open: "从新图标打开网站。",
+  },
+  bell: {
+    tip_not_subscribed: "接收通知",
+    tip_subscribed: "通知已开启",
+    tip_blocked: "通知已被阻止",
+    after_subscribe: "谢谢！通知已开启。",
+    after_unsubscribe: "通知已关闭。",
+    dialog_title: "通知",
+    subscribe: "开启通知",
+    unsubscribe: "关闭通知",
+    blocked_title: "通知已被阻止",
+    blocked_help: "如需允许，请在浏览器中打开此网站的设置并允许通知。",
+    aria_label: "通知设置",
+    close: "关闭",
+  },
+  button: {
+    subscribe: "接收通知",
+    unsubscribe: "停止通知",
+    explanation: "",
+    blocked: "已在此浏览器中阻止",
+  },
+  email_phone: {
+    message: "直接获取我们的最新消息。",
+    email_label: "电子邮件地址",
+    phone_label: "手机号码",
+    submit: "订阅",
+    later: "以后再说",
+    confirm: "感谢订阅。",
+    code_label: "发送到你手机的验证码",
+    code_submit: "确认",
+    invalid_email: "请输入有效的电子邮件地址。",
+    invalid_phone: "请输入带国家代码的号码，例如 +86。",
+    code_wrong: "验证码不正确，请重试。",
+    error: "出了点问题，请稍后再试。",
+    close: "关闭",
+  },
+  verify: {
+    message: "允许通知以完成 {site} 的设置",
+    allow: "允许",
+    close: "关闭",
+  },
+};

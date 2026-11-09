@@ -1,0 +1,57 @@
+/** Default prompt wording: French. */
+import type { Strings } from "./strings";
+
+export const fr: Strings = {
+  slide_in: {
+    message: "Soyez prévenu dès qu'il y a du nouveau.",
+    allow: "Autoriser",
+    later: "Plus tard",
+    update_message: "Choisissez les sujets qui vous intéressent.",
+    save: "Enregistrer",
+    cancel: "Annuler",
+    ios_message: "Ajoutez ce site à l'écran d'accueil pour recevoir des notifications.",
+    ios_step_share: "Touchez Partager dans la barre du navigateur.",
+    ios_step_add: "Choisissez Sur l'écran d'accueil.",
+    ios_step_open: "Ouvrez le site depuis sa nouvelle icône.",
+  },
+  bell: {
+    tip_not_subscribed: "Recevoir les notifications",
+    tip_subscribed: "Notifications activées",
+    tip_blocked: "Notifications bloquées",
+    after_subscribe: "Merci ! Notifications activées.",
+    after_unsubscribe: "Notifications désactivées.",
+    dialog_title: "Notifications",
+    subscribe: "Activer",
+    unsubscribe: "Désactiver",
+    blocked_title: "Notifications bloquées",
+    blocked_help: "Pour les autoriser, ouvrez les réglages du site dans votre navigateur.",
+    aria_label: "Réglages des notifications",
+    close: "Fermer",
+  },
+  button: {
+    subscribe: "Activer les alertes",
+    unsubscribe: "Couper les alertes",
+    explanation: "",
+    blocked: "Bloquées dans ce navigateur",
+  },
+  email_phone: {
+    message: "Recevez nos nouvelles directement.",
+    email_label: "Adresse e-mail",
+    phone_label: "Numéro de téléphone",
+    submit: "S'inscrire",
+    later: "Plus tard",
+    confirm: "Merci pour votre inscription.",
+    code_label: "Code reçu sur votre téléphone",
+    code_submit: "Valider",
+    invalid_email: "Saisissez une adresse e-mail valide.",
+    invalid_phone: "Saisissez le numéro avec l'indicatif du pays, comme +33.",
+    code_wrong: "Ce code ne fonctionne pas. Réessayez.",
+    error: "Un problème est survenu. Réessayez plus tard.",
+    close: "Fermer",
+  },
+  verify: {
+    message: "Autorisez les notifications pour terminer la configuration de {site}",
+    allow: "Autoriser",
+    close: "Fermer",
+  },
+};

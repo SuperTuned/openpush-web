@@ -1,0 +1,50 @@
+{
+  "name": "@openpush/vue",
+  "version": "1.1.0",
+  "description": "OpenPush web push for Vue 3: a plugin and a composable over @openpush/web.",
+  "private": true,
+  "license": "Apache-2.0",
+  "author": "JuneSoftware Inc",
+  "homepage": "https://github.com/SuperTuned/openpush-web/tree/main/packages/vue#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SuperTuned/openpush-web.git",
+    "directory": "packages/vue"
+  },
+  "bugs": {
+    "url": "https://github.com/SuperTuned/openpush-web/issues"
+  },
+  "keywords": [
+    "web push",
+    "push notifications",
+    "service worker",
+    "openpush",
+    "vue"
+  ],
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "NOTICE"
+  ],
+  "sideEffects": false,
+  "peerDependencies": {
+    "@openpush/web": "1.1.0",
+    "vue": "^3.3.0"
+  },
+  "devDependencies": {
+    "vue": "3.5.44"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

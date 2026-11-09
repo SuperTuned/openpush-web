@@ -1,0 +1,21 @@
+node_modules/
+dist/
+coverage/
+*.log
+.DS_Store
+.vite/
+
+# Copied into each wrapper package by scripts/build-packages.mjs
+packages/*/LICENSE
+packages/*/NOTICE
+
+# Local machine and editor files
+.idea/
+.env
+
+# Working notes and agent state that never belong in the repository
+PRODUCT.md
+DESIGN.md
+.impeccable/
+.claude/
+.superpowers/

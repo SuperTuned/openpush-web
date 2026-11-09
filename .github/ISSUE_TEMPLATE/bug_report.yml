@@ -1,0 +1,55 @@
+name: Bug report
+description: Something in the SDK does not work as documented.
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please do not report security problems here. See SECURITY.md instead.
+  - type: input
+    id: version
+    attributes:
+      label: SDK version
+      description: The version `OpenPush.version` reports, or the npm package version.
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Browser and operating system
+      placeholder: "Chrome 142 on Windows 11; Safari on iOS 26 from the Home Screen"
+    validations:
+      required: true
+  - type: dropdown
+    id: install
+    attributes:
+      label: How the SDK is loaded
+      options:
+        - Script tag
+        - npm (@openpush/web)
+        - React, Vue or Angular wrapper
+        - Compatibility layer
+        - WordPress plugin
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: What you did, what you expected, and what happened instead.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      description: The smallest page or code that shows the problem. Remove app ids, keys and tokens.
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs
+      description: Relevant browser console lines (with logLevel set to debug), with app ids, keys and tokens removed.
+      render: text

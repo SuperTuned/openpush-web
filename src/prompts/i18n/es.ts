@@ -1,0 +1,57 @@
+/** Default prompt wording: Spanish. */
+import type { Strings } from "./strings";
+
+export const es: Strings = {
+  slide_in: {
+    message: "Recibe un aviso cuando haya algo nuevo.",
+    allow: "Permitir",
+    later: "Ahora no",
+    update_message: "Elige sobre qué quieres recibir avisos.",
+    save: "Guardar",
+    cancel: "Cancelar",
+    ios_message: "Añade este sitio a tu pantalla de inicio para recibir notificaciones.",
+    ios_step_share: "Toca Compartir en la barra del navegador.",
+    ios_step_add: "Elige Añadir a pantalla de inicio.",
+    ios_step_open: "Abre el sitio desde su nuevo icono.",
+  },
+  bell: {
+    tip_not_subscribed: "Recibir notificaciones",
+    tip_subscribed: "Notificaciones activadas",
+    tip_blocked: "Notificaciones bloqueadas",
+    after_subscribe: "¡Gracias! Notificaciones activadas.",
+    after_unsubscribe: "Notificaciones desactivadas.",
+    dialog_title: "Notificaciones",
+    subscribe: "Activar",
+    unsubscribe: "Desactivar",
+    blocked_title: "Notificaciones bloqueadas",
+    blocked_help: "Para permitirlas, abre los ajustes de este sitio en tu navegador.",
+    aria_label: "Ajustes de notificaciones",
+    close: "Cerrar",
+  },
+  button: {
+    subscribe: "Activar avisos",
+    unsubscribe: "Desactivar avisos",
+    explanation: "",
+    blocked: "Bloqueadas en este navegador",
+  },
+  email_phone: {
+    message: "Recibe nuestras novedades directamente.",
+    email_label: "Correo electrónico",
+    phone_label: "Número de teléfono",
+    submit: "Suscribirme",
+    later: "Ahora no",
+    confirm: "Gracias por suscribirte.",
+    code_label: "Código enviado a tu teléfono",
+    code_submit: "Confirmar",
+    invalid_email: "Escribe un correo electrónico válido.",
+    invalid_phone: "Escribe el número con el prefijo del país, como +34.",
+    code_wrong: "Ese código no es válido. Inténtalo de nuevo.",
+    error: "Algo salió mal. Inténtalo más tarde.",
+    close: "Cerrar",
+  },
+  verify: {
+    message: "Permite las notificaciones para terminar de configurar {site}",
+    allow: "Permitir",
+    close: "Cerrar",
+  },
+};
